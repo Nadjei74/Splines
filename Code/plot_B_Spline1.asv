@@ -1,0 +1,22 @@
+
+data = dlmread('bspline_surface_points.txt');
+
+% Extract x and y coordinates
+x = data(:, 1);
+y = data(:, 2);
+z = data(:, 3);
+
+% Calculate an approximate square grid size
+grid_size =  % or numel(y) since they should have the same number of elements
+
+% Reshape data for plotting
+X = reshape(x, grid_size, grid_size);
+Y = reshape(y, grid_size, grid_size);
+Z = reshape(z, grid_size, grid_size); % Corrected the reshaping of z
+
+% Plot the Bezier surface
+surf(X, Y, Z);
+xlabel('X');
+ylabel('Y');
+zlabel('Z');
+title('Rational Bezier Surface');
